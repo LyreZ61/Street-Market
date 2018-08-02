@@ -4,6 +4,7 @@ ScriptedImporter:
   fileIDToRecycleName:
     100000: gameObject/Street Market
     400000: gameObject/Street Market/Transform
+    2800000: texAtlas
     21200000: gameObject/Street Market/SpriteRenderer
     21300000: sprite
     100100000: gameObject

@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class ButtonScript : MonoBehaviour {
 
+    private float currentSpeed = 1f;
+
+
     public void MoveToScene(int SceneZahl)
     {
         SceneManager.LoadScene(SceneZahl);
@@ -25,8 +28,21 @@ public class ButtonScript : MonoBehaviour {
         }
         else
         {
-            Time.timeScale = 1;
+            Time.timeScale = currentSpeed;
         }
+    }
+
+    public void Speed()
+    {
+        if (currentSpeed == 1f)
+        {
+            currentSpeed = 2f;
+        }
+        else
+        {
+            currentSpeed = 1f;
+        }
+        Time.timeScale = currentSpeed;
     }
 
     public void QutiGame()
