@@ -31,12 +31,12 @@ public class MovementPeople : MonoBehaviour {
                 }
                 break;
             case 1: //Zu Haus Laufen
-                posB = people.transform.position - diff;
+                posA = transform.position;
                 var movement = Vector2.MoveTowards(posA, posB, Time.deltaTime * speed);
                 transform.position = movement;
                 if (posB.x == posA.x && posA.y == posB.y)
                 {
-                    PosBef = new Vector3(posB.x + posB.x - PosBef.x, PosBef.y, PosBef.z);
+                    PosBef = new Vector3(posB.x + (posB.x - PosBef.x), PosBef.y, PosBef.z);
                     if (people.GetComponent<houseScript>().MyPeopleAnzahl < people.GetComponent<houseScript>().MaxPeople)
                     {
                         StartCoroutine(WaitForHausTime(people.GetComponent<houseScript>().HausWait)); //Warten
@@ -89,6 +89,7 @@ public class MovementPeople : MonoBehaviour {
     {
         PosBef = transform.position;
         people = collision;
+        posB = people.transform.position - diff;
         HausGefuden = true;
     }
 
@@ -97,7 +98,7 @@ public class MovementPeople : MonoBehaviour {
         if (HausGefuden)
         {
             people = collision;
-            posA = transform.position;
+            posB = people.transform.position - diff;
         }
     }
 

@@ -11,6 +11,9 @@ public class TheGameSystem : MonoBehaviour {
     public int Gold = 0;
     public int[] People;
 
+    public GameObject CurrentBildschirm;
+    public GameObject OutroBildschirm;
+
     private int currentWave;
     public GameObject SpawnObject;
     public float SpawnTimer = 10f;
@@ -32,9 +35,18 @@ public class TheGameSystem : MonoBehaviour {
     {
         if (People[currentWave] <= 0)
         {
-            currentWave++;
-            Wave.text = "Wave : " + (currentWave + 1).ToString();
-            StartCoroutine(SpawnSystem(SpawnTimer));
+            if (currentWave < People.Length-1)
+            {
+                currentWave++;
+                Wave.text = "Wave : " + (currentWave + 1).ToString();
+                StartCoroutine(SpawnSystem(SpawnTimer));
+            }
+            else
+            {
+                Debug.Log("IT SH");
+                CurrentBildschirm.SetActive(false);
+                OutroBildschirm.SetActive(true);
+            }
         }  
     }
 
