@@ -8,7 +8,7 @@ public class TheGameSystem : MonoBehaviour {
   
     public TextMeshProUGUI Gold_Text;
     public TextMeshProUGUI Wave;
-    public int Gold = 0;
+    public int Gold;
     public int[] People;
 
     public GameObject CurrentBildschirm;
@@ -21,6 +21,7 @@ public class TheGameSystem : MonoBehaviour {
 
     private void Start()
     {
+        Gold_Text.text = "Gold :" + Gold.ToString() + "$";
         Wave.text = "Wave : " + (currentWave+1).ToString();
         StartCoroutine(SpawnSystem(SpawnTimer));
     }
