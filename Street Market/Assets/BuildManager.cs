@@ -4,6 +4,36 @@ public class BuildManager : MonoBehaviour
 {
 
     public static BuildManager instance;
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogError("More than one BuildManager in Scene");
+            return;
+        }
+
+        instance = this;
+    }
+
+    public GameObject standardHousePrefab;
+
+    private void Start()
+    {
+        houseTobuild = standardHousePrefab;
+    }
+
+    private GameObject houseTobuild;
+
+    public GameObject GetHouseToBuild()
+    {
+        return houseTobuild;
+    }
+
+
+
+
+
+    /*public static BuildManager instance;
 
     private void Awake()
     {
@@ -25,7 +55,7 @@ public class BuildManager : MonoBehaviour
     /*public GameObject standardTurretPrefab;
     public GameObject missileLauncherPrefab;*/
 
-    public GameObject buildEffect;
+    /*public GameObject buildEffect;
     public GameObject sellEffect;
 
 
@@ -45,7 +75,7 @@ public class BuildManager : MonoBehaviour
         turretToBuild = turret;
     }*/
 
-    public bool CanBuild { get { return turretToBuild != null; } }  //buysystem
+    /*public bool CanBuild { get { return turretToBuild != null; } }  //buysystem
     public bool HasMoney { get { return PlayerStats.Money >= turretToBuild.cost; } }  //buysystem
 
 
@@ -80,5 +110,5 @@ public class BuildManager : MonoBehaviour
     {
         return turretToBuild;
     }
-
+*/
 }
