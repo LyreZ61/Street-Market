@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+
 public class HouseSpawn : MonoBehaviour {
 
     public Color hoverColor;
@@ -11,25 +12,39 @@ public class HouseSpawn : MonoBehaviour {
     private Renderer rend;
     private Color startColor;
 
+    BuildManager buildManager;
+
     private void Start()
     {
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
+        buildManager = BuildManager.instance;
     }
 
     private void OnMouseDown()
     {
+
+
+        if (buildManager.GetHouseToBuild() == null)
+            return;
+
         if (house != null)
         {
             Debug.Log("Cant´t build there! - TODO : Display on screen");
             return;
         }
-        GameObject houseToBuild = BuildManager.instance.GetHouseToBuild();
-        house =(GameObject)Instantiate(houseToBuild, transform.position, transform.rotation);
+        GameObject houseToBuild = buildManager.GetHouseToBuild();
+        house = (GameObject)Instantiate(houseToBuild, transform.position, transform.rotation);
+        buildManager.SetHouseToBuild(null);
     }
 
     private void OnMouseEnter()
     {
+   
+
+        if (buildManager.GetHouseToBuild() == null)
+            return;
+
         rend.material.color = hoverColor;
     }
 

@@ -16,12 +16,7 @@ public class BuildManager : MonoBehaviour
     }
 
     public GameObject standardHousePrefab;
-
-    private void Start()
-    {
-        houseTobuild = standardHousePrefab;
-    }
-
+    //public GameObject standardHousePrefab; //hier weiter einfügen.
     private GameObject houseTobuild;
 
     public GameObject GetHouseToBuild()
@@ -29,6 +24,10 @@ public class BuildManager : MonoBehaviour
         return houseTobuild;
     }
 
+    public void SetHouseToBuild (GameObject house)
+    {
+       houseTobuild = house;
+    }
 
 
 
