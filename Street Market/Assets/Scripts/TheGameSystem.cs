@@ -22,8 +22,7 @@ public class TheGameSystem : MonoBehaviour {
     private void Start()
     {
         Gold_Text.text = "Gold :" + Gold.ToString() + "$";
-        Wave.text = "Wave : " + (currentWave+1).ToString();
-        StartCoroutine(SpawnSystem(SpawnTimer));
+        Wave.text = "Day " + (currentWave).ToString()+"!";
     }
 
     public void GoldVerdient(int Goldplus)
@@ -34,17 +33,16 @@ public class TheGameSystem : MonoBehaviour {
 
     public void NextWave()
     {
-        if (People[currentWave] <= 0)
+        if (People[currentWave] <= 0 || currentWave == 0)
         {
             if (currentWave < People.Length-1)
             {
                 currentWave++;
-                Wave.text = "Wave : " + (currentWave + 1).ToString();
+                Wave.text = "Day " + (currentWave).ToString() + "!";
                 StartCoroutine(SpawnSystem(SpawnTimer));
             }
             else
             {
-                Debug.Log("IT SH");
                 CurrentBildschirm.SetActive(false);
                 OutroBildschirm.SetActive(true);
             }
