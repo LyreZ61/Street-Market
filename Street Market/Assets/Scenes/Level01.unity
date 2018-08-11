@@ -1000,7 +1000,7 @@ MonoBehaviour:
   SpawnObject: {fileID: 1905360834857348, guid: 23883400cd2558c45924d24050a22c48,
     type: 2}
   SpawnTimer: 1
-  SpawnPoint: {x: -140, y: 0, z: 0}
+  SpawnPoint: {x: -160, y: -3.5, z: 0}
 --- !u!1001 &134467764
 Prefab:
   m_ObjectHideFlags: 0
