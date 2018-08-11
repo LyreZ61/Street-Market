@@ -93,8 +93,9 @@ public class MovementPeople : MonoBehaviour {
         HausGefuden = true;
     }
 
-    private void OnTriggerStay2D(Collider2D people)
+    private void OnTriggerStay2D(Collider2D collision)
     {
+        people = collision;
         posB = people.transform.position - diff;
     }
 
