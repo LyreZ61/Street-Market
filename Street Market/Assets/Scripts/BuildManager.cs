@@ -15,99 +15,43 @@ public class BuildManager : MonoBehaviour
         instance = this;
     }
 
-    public GameObject standardHousePrefab;
-    //public GameObject standardHousePrefab; //hier weiter einfügen.
-    private GameObject houseTobuild;
+    private HouseBluePrint houseToBuild;
+    private HouseSpawn selectedHouseSpawn;
 
-    public GameObject GetHouseToBuild()
+    public UpSellUI upSellUI;
+
+    public bool CanBuild { get { return houseToBuild != null; } }  //buysystem
+    public bool HasMoney { get { return PlayerStats.Money >= houseToBuild.cost; } }  //buysystem
+
+    public void SelectHouse(HouseSpawn houseSpawn)
     {
-        return houseTobuild;
-    }
-
-    public void SetHouseToBuild (GameObject house)
-    {
-       houseTobuild = house;
-    }
-
-
-
-
-    /*public static BuildManager instance;
-
-    private void Awake()
-    {
-        if (instance != null)
+        if (selectedHouseSpawn == houseSpawn)
         {
-            Debug.LogError("More than one BuildManager in scene!");
-        }
-        instance = this;
-
-    }
-
-
-
-    /* private void Start()                  //dazu da etwas am anfang selected zu haben um es nach klicken zu bauen.
-     {
-         turretToBuild = standardTurretPrefab;
-     } */
-
-    /*public GameObject standardTurretPrefab;
-    public GameObject missileLauncherPrefab;*/
-
-    /*public GameObject buildEffect;
-    public GameObject sellEffect;
-
-
-
-    private BuildBluePrint turretToBuild;          //private Gameobject turretToBuild;
-    private WayPoints selectedwaypoints;
-
-    public UIBuy uibuy;
-
-    /*public GameObject GetTurretToBuild() // wird nicht mehr gebraucht da wir ein buy system bauen
-    {
-        return turretToBuild;
-    }*/
-
-    /*public void SetTurretToBuild(GameObject turret)  //hat mit dem shop etwas zutun 
-    {
-        turretToBuild = turret;
-    }*/
-
-    /*public bool CanBuild { get { return turretToBuild != null; } }  //buysystem
-    public bool HasMoney { get { return PlayerStats.Money >= turretToBuild.cost; } }  //buysystem
-
-
-    public void SelectNode(WayPoints waypoints)
-    {
-        if (selectedwaypoints == waypoints)
-        {
-            DeselectWayPoint();
+            DeselectNode();
             return;
         }
+        selectedHouseSpawn = houseSpawn;
+        houseToBuild = null;
 
-        selectedwaypoints = waypoints;
-        turretToBuild = null;
-
-        uibuy.SetTarget(waypoints);
+        upSellUI.SetTarget(houseSpawn);
     }
 
-    public void DeselectWayPoint()
+    public void DeselectNode()
     {
-        selectedwaypoints = null;
-        uibuy.Hide();
+        selectedHouseSpawn = null;
+        upSellUI.Hide();
     }
 
-    public void SelectTurretToBuild(BuildBluePrint turret)
+    public void SelectHouseToBuild(HouseBluePrint house)
     {
-        turretToBuild = turret;
-        DeselectWayPoint();
+        houseToBuild = house;
+        DeselectNode();
     }
 
 
-    public BuildBluePrint GetTurretToBuild()
+    public HouseBluePrint GetHouseToBuild()
     {
-        return turretToBuild;
+        return houseToBuild;
     }
-*/
+
 }

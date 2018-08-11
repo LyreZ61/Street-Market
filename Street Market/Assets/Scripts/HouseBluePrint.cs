@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]                           // wird benötigt damit das mit monobehaviour entfernung funktioniert
-public class BuildBluePrint
+public class HouseBluePrint
 {                                                   //  : MonoBehaviour wurde entfenrt weil wir es nicht als komponeten in unity haben wollen
 
     public GameObject prefab;
