@@ -56,12 +56,12 @@ public class HouseSpawn : MonoBehaviour {
 
     void BuildHouse(HouseBluePrint blueprint)
     {
-        if (PlayerStats.Money < blueprint.cost)
+        if (TheGameSystem.Money < blueprint.cost)
         {
             Debug.Log("Not enough to build that!");
             return;
         }
-        PlayerStats.Money -= blueprint.cost;
+        FindObjectOfType<TheGameSystem>().MoneyVerloren(blueprint.cost);
 
         GameObject _house = (GameObject)Instantiate(blueprint.prefab, GetBuildPosition(), Quaternion.identity);           //GameObject turretToBuild = buildManager.GetTurretToBuild();
         house = _house;                                                                                            //turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
@@ -71,18 +71,18 @@ public class HouseSpawn : MonoBehaviour {
         /*GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);     // effect für buildeffect
         Destroy(effect, 5f);*/
 
-        Debug.Log("Turret build! Money left:" + PlayerStats.Money);
+        Debug.Log("Turret build! Money left:" + TheGameSystem.Money);
 
     }
 
     public void UpgradeHouse()
     {
-        if (PlayerStats.Money < houseBlueprint.upgradeCost)
+        if (TheGameSystem.Money < houseBlueprint.upgradeCost)
         {
             Debug.Log("Not enough to upgrade that!");
             return;
         }
-        PlayerStats.Money -= houseBlueprint.upgradeCost;
+        FindObjectOfType<TheGameSystem>().MoneyVerloren(houseBlueprint.upgradeCost);
 
         //Get rid of the old turret
         Destroy(house);
@@ -101,7 +101,7 @@ public class HouseSpawn : MonoBehaviour {
 
     public void SellHouse()
     {
-        PlayerStats.Money += houseBlueprint.GetSellAmount();   //verkaufen gibt dir die häflte verbunden mit turretblueprint.
+        FindObjectOfType<TheGameSystem>().MoneyVerdient(houseBlueprint.GetSellAmount());   //verkaufen gibt dir die häflte verbunden mit turretblueprint.
 
         /*GameObject effect = (GameObject)Instantiate(buildManager.sellEffect, GetBuildPosition(), Quaternion.identity);     // effect für selleffect
         Destroy(effect, 5f);*/

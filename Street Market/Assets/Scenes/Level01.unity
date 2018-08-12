@@ -993,7 +993,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gold_Text: {fileID: 484561424}
   Wave: {fileID: 2117421218}
-  Gold: 300
+  startMoney: 400
   People: 0a000000140000001e00000028000000
   CurrentBildschirm: {fileID: 973739064}
   OutroBildschirm: {fileID: 1058089655}
@@ -4223,7 +4223,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1840675141375094, guid: 18f23735de170d643a6b768663295a5c, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224465184721187116, guid: 18f23735de170d643a6b768663295a5c,
         type: 2}
@@ -5546,6 +5546,7 @@ GameObject:
   - component: {fileID: 746971211}
   - component: {fileID: 746971210}
   - component: {fileID: 746971213}
+  - component: {fileID: 746971214}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5624,6 +5625,18 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!114 &746971214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 746971209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: d982e879ff67b4d3fb6522d08c3cd5af, type: 2}
 --- !u!1001 &747791676
 Prefab:
   m_ObjectHideFlags: 0
@@ -7536,6 +7549,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1840675141375094, guid: 18f23735de170d643a6b768663295a5c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18f23735de170d643a6b768663295a5c, type: 2}
   m_IsPrefabAsset: 0
@@ -7959,7 +7976,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1064959928}
   - component: {fileID: 1064959926}
-  - component: {fileID: 1064959927}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -7979,18 +7995,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upSellUI: {fileID: 1964989652}
---- !u!114 &1064959927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1064959925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce06eab8d02850b4c89dc62366baf177, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startMoney: 400
 --- !u!4 &1064959928
 Transform:
   m_ObjectHideFlags: 0
@@ -12193,8 +12197,9 @@ MonoBehaviour:
   standardHouse:
     prefab: {fileID: 1376925641448656, guid: 755f21a103a74804ab253bb96b486215, type: 2}
     cost: 100
-    upgradedPrefap: {fileID: 0}
-    upgradeCost: 0
+    upgradedPrefap: {fileID: 1796533388916040, guid: 1a189b5daacd03141b23c56c50a58efe,
+      type: 2}
+    upgradeCost: 150
 --- !u!1001 &1665641870
 Prefab:
   m_ObjectHideFlags: 0
@@ -14153,7 +14158,6 @@ GameObject:
   - component: {fileID: 1964989655}
   - component: {fileID: 1964989654}
   - component: {fileID: 1964989653}
-  - component: {fileID: 1964989657}
   - component: {fileID: 1964989652}
   m_Layer: 0
   m_Name: UI UpSell
@@ -14253,17 +14257,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 12}
   m_SizeDelta: {x: 12, y: 7}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1964989657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1964989651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 945c932b3c5620942956c6edd928d53b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1977927838 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4848844702527474, guid: 67e89ebe4d7031147a84f4cf822e7f1e,

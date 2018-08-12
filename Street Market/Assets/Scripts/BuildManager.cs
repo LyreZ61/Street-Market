@@ -21,7 +21,7 @@ public class BuildManager : MonoBehaviour
     public UpSellUI upSellUI;
 
     public bool CanBuild { get { return houseToBuild != null; } }  //buysystem
-    public bool HasMoney { get { return PlayerStats.Money >= houseToBuild.cost; } }  //buysystem
+    public bool HasMoney { get { return TheGameSystem.Money >= houseToBuild.cost; } }  //buysystem
 
     public void SelectHouse(HouseSpawn houseSpawn)
     {

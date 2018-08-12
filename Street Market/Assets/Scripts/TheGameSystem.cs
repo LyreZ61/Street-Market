@@ -8,7 +8,8 @@ public class TheGameSystem : MonoBehaviour {
   
     public TextMeshProUGUI Gold_Text;
     public TextMeshProUGUI Wave;
-    public int Gold;
+    public static int Money;
+    public int startMoney = 400;
     public int[] People;
 
     public GameObject CurrentBildschirm;
@@ -21,14 +22,21 @@ public class TheGameSystem : MonoBehaviour {
 
     private void Start()
     {
-        Gold_Text.text = "Gold :" + Gold.ToString() + "$";
+        Money = startMoney;
+        Gold_Text.text = "Gold :" + Money.ToString() + "$";
         Wave.text = "Day " + (currentWave).ToString()+"!";
     }
 
-    public void GoldVerdient(int Goldplus)
+    public void MoneyVerdient(int Goldplus)
     {
-        Gold += Goldplus;
-        Gold_Text.text = "Gold :" + Gold.ToString()+"$";
+        Money += Goldplus;
+        Gold_Text.text = "Gold :" + Money.ToString()+"$";
+    }
+
+    public void MoneyVerloren(int Goldplus)
+    {
+        Money -= Goldplus;
+        Gold_Text.text = "Gold :" + Money.ToString() + "$";
     }
 
     public void NextWave()

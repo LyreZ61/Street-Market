@@ -78,7 +78,7 @@ public class MovementPeople : MonoBehaviour {
     {
         yield return new WaitForSeconds(waitTime);
         int GeldBekommen = people.GetComponent<houseScript>().GeldBekommen;
-        FindObjectOfType<TheGameSystem>().GoldVerdient(GeldBekommen);
+        FindObjectOfType<TheGameSystem>().MoneyVerdient(GeldBekommen);
         HausGefuden = false;
         people.GetComponent<houseScript>().PeopleRefresh(-1); //People -1
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
