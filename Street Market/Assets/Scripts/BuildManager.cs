@@ -36,6 +36,7 @@ public class BuildManager : MonoBehaviour
         upSellUI.SetTarget(houseSpawn);
     }
 
+
     public void DeselectNode()
     {
         selectedHouseSpawn = null;
@@ -46,6 +47,7 @@ public class BuildManager : MonoBehaviour
     {
         houseToBuild = house;
         DeselectNode();
+        
     }
 
 

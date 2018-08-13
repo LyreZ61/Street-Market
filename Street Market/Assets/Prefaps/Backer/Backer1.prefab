@@ -185,7 +185,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4, y: 4}
+  m_Size: {x: 3, y: 4}
   m_EdgeRadius: 0
 --- !u!114 &114159399294129554
 MonoBehaviour:
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb4246bbd71599541aa5dba6d87c06fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GeldBekommen: 50
+  GeldBekommen: 25
   img: {fileID: 114535277031934656}
   MaxPeople: 5
   HausWait: 7
@@ -530,7 +530,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -131.86816, y: 3.9560819}
+  m_AnchoredPosition: {x: -22.79806, y: 15.305413}
   m_SizeDelta: {x: 3.1, y: 2.29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224691634548341218

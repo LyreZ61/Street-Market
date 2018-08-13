@@ -69,7 +69,7 @@ public class HouseSpawn : MonoBehaviour {
         house = _house;                                                                                            //turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
 
         houseBlueprint = blueprint;
-
+        buildManager.SelectHouseToBuild(null);                                                                      //deselct nach klick fürs bauen.
         /*GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);     // effect für buildeffect
         Destroy(effect, 5f);*/
 
@@ -108,7 +108,7 @@ public class HouseSpawn : MonoBehaviour {
         /*GameObject effect = (GameObject)Instantiate(buildManager.sellEffect, GetBuildPosition(), Quaternion.identity);     // effect für selleffect
         Destroy(effect, 5f);*/
 
-
+        isUpgraded = false;
         Destroy(house);
         houseBlueprint = null;
     }

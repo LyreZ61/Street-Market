@@ -7,10 +7,11 @@ public class UpSellUI : MonoBehaviour {
     public GameObject ui;
 
     public TextMeshProUGUI upgradeCost;
+    public TextMeshProUGUI upgradeCostPanel;
 
     private HouseSpawn target;
     public Button upgradeButton;
-
+    public Vector3 positionOffset;
     public TextMeshProUGUI sellAmount;         //verkaufen
 
 
@@ -18,7 +19,7 @@ public class UpSellUI : MonoBehaviour {
     {
         target = _target;
 
-        transform.position = target.GetBuildPosition();         //Die normale position ist im Object durch target.GetBUildPostition wird die 
+        transform.position = target.GetBuildPosition() + positionOffset;         //Die normale position ist im Object durch target.GetBUildPostition wird die 
 
         if (!target.isUpgraded)
         {

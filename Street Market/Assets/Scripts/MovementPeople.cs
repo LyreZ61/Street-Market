@@ -21,7 +21,7 @@ public class MovementPeople : MonoBehaviour {
         switch (SwitchInput)
         {
             case 0: //Normal Laufen
-                if (NewHaus != null && HausGefuden == true && OldHaus != NewHaus)
+                if (NewHaus != null && HausGefuden == true && transform.position.x > NewHaus.transform.position.x)
                 {
                     SwitchInput = 1;
                     return;
@@ -37,7 +37,7 @@ public class MovementPeople : MonoBehaviour {
                 transform.position = movement;
                 if (posB.x == posA.x && posA.y == posB.y)
                 {
-                    PosBef = new Vector3(posB.x + (posB.x - PosBef.x), PosBef.y, PosBef.z);
+                    PosBef = new Vector3(posB.x + Mathf.Abs((posB.x - PosBef.x)), PosBef.y, PosBef.z);
                     if (NewHaus.GetComponent<houseScript>().MyPeopleAnzahl < NewHaus.GetComponent<houseScript>().MaxPeople)
                     {
                         StartCoroutine(WaitForHausTime(NewHaus.GetComponent<houseScript>().HausWait)); //Warten
