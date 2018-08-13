@@ -375,10 +375,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb4246bbd71599541aa5dba6d87c06fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GeldBekommen: 50
+  GeldBekommen: 10
   img: {fileID: 114670627239035098}
-  MaxPeople: 5
-  HausWait: 7
+  MaxPeople: 4
+  HausWait: 3
   ReinGehen: 1
   Text: {fileID: 114153410949210698}
   MyPeopleAnzahl: 0

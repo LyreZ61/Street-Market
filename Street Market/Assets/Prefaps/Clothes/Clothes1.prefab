@@ -402,10 +402,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb4246bbd71599541aa5dba6d87c06fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GeldBekommen: 50
+  GeldBekommen: 40
   img: {fileID: 114114379366572854}
   MaxPeople: 7
-  HausWait: 10
+  HausWait: 12
   ReinGehen: 1
   Text: {fileID: 114121187733887780}
   MyPeopleAnzahl: 0
