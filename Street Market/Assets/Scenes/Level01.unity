@@ -1101,13 +1101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6ab6423e908ed9409c918bf7046f8b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: {fileID: 0}
-  houseToBuild:
-    prefab: {fileID: 0}
-    cost: 0
-    upgradedPrefap: {fileID: 0}
-    upgradeCost: 0
-  houseNumber: 0
+  Text: {fileID: 2058308055}
+  shopp: {fileID: 1663866831}
+  houseNumber: 1
 --- !u!114 &136852837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1386,13 +1382,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6ab6423e908ed9409c918bf7046f8b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: {fileID: 0}
-  houseToBuild:
-    prefab: {fileID: 0}
-    cost: 0
-    upgradedPrefap: {fileID: 0}
-    upgradeCost: 0
-  houseNumber: 0
+  Text: {fileID: 346142587}
+  shopp: {fileID: 1663866831}
+  houseNumber: 2
 --- !u!114 &156951007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3087,7 +3079,6 @@ GameObject:
   - component: {fileID: 391836543}
   - component: {fileID: 391836545}
   - component: {fileID: 391836544}
-  - component: {fileID: 391836546}
   m_Layer: 0
   m_Name: Money
   m_TagString: Untagged
@@ -3148,17 +3139,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 391836542}
   m_CullTransparentMesh: 0
---- !u!114 &391836546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 391836542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 335cb18da53a77048942b58e7b5b760a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &394788397
 Prefab:
   m_ObjectHideFlags: 0
@@ -5502,12 +5482,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6ab6423e908ed9409c918bf7046f8b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: {fileID: 0}
-  houseToBuild:
-    prefab: {fileID: 0}
-    cost: 0
-    upgradedPrefap: {fileID: 0}
-    upgradeCost: 0
+  Text: {fileID: 1477462446}
+  shopp: {fileID: 1663866831}
   houseNumber: 0
 --- !u!114 &718572109
 MonoBehaviour:
@@ -12627,7 +12603,7 @@ MonoBehaviour:
   standardHouse:
   - prefab: {fileID: 1024254378732482, guid: 065d59d0dbe0a6b44a66b6c862da43fe, type: 2}
     cost: 50
-    upgradedPrefap: {fileID: 1341495175078798, guid: 8cc4f766e8cdc5942a66cab2012c846c,
+    upgradedPrefap: {fileID: 1613442119488590, guid: 8cc4f766e8cdc5942a66cab2012c846c,
       type: 2}
     upgradeCost: 100
   - prefab: {fileID: 1098511197687190, guid: 43680855ea46c214eb2981a213ac8fef, type: 2}
@@ -14937,7 +14913,7 @@ RectTransform:
   m_GameObject: {fileID: 1964989651}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 603341888}
   - {fileID: 1838749590}

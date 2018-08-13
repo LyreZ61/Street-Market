@@ -7,8 +7,13 @@ using TMPro;
 public class Bauen : MonoBehaviour {
 
     public TextMeshProUGUI Text;
-    public HouseBluePrint houseToBuild;
+    public shop shopp;
     public int houseNumber;
+
+    public void Start()
+    {
+        Text.text = shopp.standardHouse[houseNumber].cost.ToString()+"$";
+    }
 
 
     public void HausBauen()
