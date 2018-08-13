@@ -8,7 +8,8 @@ public class MovementPeople : MonoBehaviour {
     public Vector3 diff;    //Differenz um den Position unter dem Haus zu haben.
 
     public bool HausGefuden = false;
-    private Collider2D people;
+    private Collider2D NewHaus;
+    private Collider2D OldHaus;
     private Vector3 posA;
     private Vector3 posB;
     private Vector3 PosBef;
@@ -20,7 +21,7 @@ public class MovementPeople : MonoBehaviour {
         switch (SwitchInput)
         {
             case 0: //Normal Laufen
-                if (people != null && HausGefuden == true)
+                if (NewHaus != null && HausGefuden == true && OldHaus != NewHaus)
                 {
                     SwitchInput = 1;
                     return;
@@ -37,11 +38,11 @@ public class MovementPeople : MonoBehaviour {
                 if (posB.x == posA.x && posA.y == posB.y)
                 {
                     PosBef = new Vector3(posB.x + (posB.x - PosBef.x), PosBef.y, PosBef.z);
-                    if (people.GetComponent<houseScript>().MyPeopleAnzahl < people.GetComponent<houseScript>().MaxPeople)
+                    if (NewHaus.GetComponent<houseScript>().MyPeopleAnzahl < NewHaus.GetComponent<houseScript>().MaxPeople)
                     {
-                        StartCoroutine(WaitForHausTime(people.GetComponent<houseScript>().HausWait)); //Warten
-                        people.GetComponent<houseScript>().PeopleRefresh(1); //People +1
-                        if (people.GetComponent<houseScript>().ReinGehen == true) //Wenn Haus nicht voll ist
+                        StartCoroutine(WaitForHausTime(NewHaus.GetComponent<houseScript>().HausWait)); //Warten
+                        NewHaus.GetComponent<houseScript>().PeopleRefresh(1); //People +1
+                        if (NewHaus.GetComponent<houseScript>().ReinGehen == true) //Wenn Haus nicht voll ist
                         {
                             gameObject.GetComponent<SpriteRenderer>().enabled = false;
                         }
@@ -50,7 +51,8 @@ public class MovementPeople : MonoBehaviour {
                     else
                     {
                         HausGefuden = false;
-                        people = null;
+                        NewHaus = null;
+                        OldHaus = NewHaus;
                         SwitchInput = 3;
                     }
                     return;
@@ -77,10 +79,10 @@ public class MovementPeople : MonoBehaviour {
     private IEnumerator WaitForHausTime(float waitTime) //Warten
     {
         yield return new WaitForSeconds(waitTime);
-        int GeldBekommen = people.GetComponent<houseScript>().GeldBekommen;
+        int GeldBekommen = NewHaus.GetComponent<houseScript>().GeldBekommen;
         FindObjectOfType<TheGameSystem>().MoneyVerdient(GeldBekommen);
         HausGefuden = false;
-        people.GetComponent<houseScript>().PeopleRefresh(-1); //People -1
+        NewHaus.GetComponent<houseScript>().PeopleRefresh(-1); //People -1
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
         SwitchInput = 3;
     }
@@ -88,15 +90,15 @@ public class MovementPeople : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PosBef = transform.position;
-        people = collision;
-        posB = people.transform.position - diff;
+        NewHaus = collision;
+        posB = NewHaus.transform.position - diff;
         HausGefuden = true;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        people = collision;
-        posB = people.transform.position - diff;
+        NewHaus = collision;
+        posB = NewHaus.transform.position - diff;
     }
 
 

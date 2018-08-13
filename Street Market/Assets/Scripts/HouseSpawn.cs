@@ -17,6 +17,7 @@ public class HouseSpawn : MonoBehaviour {
     public bool isUpgraded = false;
 
     private Renderer rend;
+    private TheGameSystem game;
     private Color startColor;
 
     BuildManager buildManager;  // shop (placement of items)
@@ -24,6 +25,7 @@ public class HouseSpawn : MonoBehaviour {
 
     private void Start()
     {
+        game = FindObjectOfType<TheGameSystem>();
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
 
@@ -61,7 +63,7 @@ public class HouseSpawn : MonoBehaviour {
             Debug.Log("Not enough to build that!");
             return;
         }
-        FindObjectOfType<TheGameSystem>().MoneyVerloren(blueprint.cost);
+        game.MoneyVerloren(blueprint.cost);
 
         GameObject _house = (GameObject)Instantiate(blueprint.prefab, GetBuildPosition(), Quaternion.identity);           //GameObject turretToBuild = buildManager.GetTurretToBuild();
         house = _house;                                                                                            //turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
@@ -82,7 +84,7 @@ public class HouseSpawn : MonoBehaviour {
             Debug.Log("Not enough to upgrade that!");
             return;
         }
-        FindObjectOfType<TheGameSystem>().MoneyVerloren(houseBlueprint.upgradeCost);
+        game.MoneyVerloren(houseBlueprint.upgradeCost);
 
         //Get rid of the old turret
         Destroy(house);
@@ -101,7 +103,7 @@ public class HouseSpawn : MonoBehaviour {
 
     public void SellHouse()
     {
-        FindObjectOfType<TheGameSystem>().MoneyVerdient(houseBlueprint.GetSellAmount());   //verkaufen gibt dir die häflte verbunden mit turretblueprint.
+        game.MoneyVerdient(houseBlueprint.GetSellAmount());   //verkaufen gibt dir die häflte verbunden mit turretblueprint.
 
         /*GameObject effect = (GameObject)Instantiate(buildManager.sellEffect, GetBuildPosition(), Quaternion.identity);     // effect für selleffect
         Destroy(effect, 5f);*/
