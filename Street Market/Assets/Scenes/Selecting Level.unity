@@ -878,15 +878,26 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 649596360}
+        m_MethodName: MoveToScene
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 649596361}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Click
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1737,6 +1748,8 @@ GameObject:
   - component: {fileID: 649596358}
   - component: {fileID: 649596357}
   - component: {fileID: 649596356}
+  - component: {fileID: 649596361}
+  - component: {fileID: 649596360}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1811,8 +1824,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 841541932}
   - {fileID: 1035208135}
+  - {fileID: 841541932}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1821,6 +1834,39 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &649596360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 649596355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48eb16b402aef784d8ce7d550f600012, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &649596361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 649596355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94129488b89bc094e87b16247633d72e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Click
+    clip: {fileID: 8300000, guid: ae7f8daeff9672948aa57091564d7c49, type: 3}
+    volume: 0.73
+    pitch: 1.04
+    source: {fileID: 0}
+  - name: Click2
+    clip: {fileID: 8300000, guid: ff3fd8e06e8a1984b863a0f3f4971561, type: 3}
+    volume: 0.603
+    pitch: 1.01
+    source: {fileID: 0}
 --- !u!1 &841541931
 GameObject:
   m_ObjectHideFlags: 0
@@ -1863,7 +1909,7 @@ RectTransform:
   - {fileID: 1680636692}
   - {fileID: 521870305}
   m_Father: {fileID: 649596359}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2300,11 +2346,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 649596359}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 17.6, y: -23.5}
+  m_AnchoredPosition: {x: 17.599976, y: -23.5}
   m_SizeDelta: {x: -263.9, y: -167.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1035208136
