@@ -7,9 +7,10 @@ using TMPro;
 public class TheGameSystem : MonoBehaviour {
   
     public TextMeshProUGUI Gold_Text;
-    public TextMeshProUGUI WaveText;
+    public TextMeshProUGUI Wave;
     public static int Money;
     public int startMoney = 400;
+    public int[] People;
 
     public GameObject CurrentBildschirm;
     public GameObject OutroBildschirm;
@@ -17,17 +18,13 @@ public class TheGameSystem : MonoBehaviour {
     private int currentWave;
     public GameObject SpawnObject;
     public float SpawnTimer = 10f;
-
     public Vector3 SpawnPoint;
-
-    public Wave[] waves; // wavespawner 2.0
 
     private void Start()
     {
-        Wave wave = waves[currentWave];
         Money = startMoney;
         Gold_Text.text = "Gold :" + Money.ToString() + "$";
-        WaveText.text = "Day " + currentWave.ToString()+"!";
+        Wave.text = "Day " + (currentWave).ToString()+"!";
     }
 
     public void MoneyVerdient(int Goldplus)
@@ -42,18 +39,15 @@ public class TheGameSystem : MonoBehaviour {
         Gold_Text.text = "Gold :" + Money.ToString() + "$";
     }
 
-    private bool WaveDone = true;
-
     public void NextWave()
     {
-        Wave wave = waves[currentWave];
-        if (WaveDone)
+        if (People[currentWave] <= 0 || currentWave == 0)
         {
-            if (currentWave < waves.Length)
+            if (currentWave < People.Length-1)
             {
-                WaveText.text = "Day " + currentWave.ToString() + "!";
+                currentWave++;
+                Wave.text = "Day " + (currentWave).ToString() + "!";
                 StartCoroutine(SpawnSystem(SpawnTimer));
-                WaveDone = false;
             }
             else
             {
@@ -65,18 +59,13 @@ public class TheGameSystem : MonoBehaviour {
 
     private IEnumerator SpawnSystem(float waitTime)
     {
-
-        Wave wave = waves[currentWave];
-        for (int i = 0; i < wave.count; i++)
+        yield return new WaitForSeconds(waitTime);
+        if (People[currentWave] > 0)
         {
-            int peopleID = Random.Range(0, wave.people.Length);
-            Instantiate(wave.people[peopleID], SpawnPoint, transform.rotation);
-            yield return new WaitForSeconds(1f / wave.rate);        //wavespaner 2.0
+            People[currentWave] -= 1;
+            Instantiate(SpawnObject, SpawnPoint, transform.rotation);
+            StartCoroutine(SpawnSystem(SpawnTimer));
         }
-        WaveDone = true;
-        currentWave++;
+
     }
-
-
-
 }
