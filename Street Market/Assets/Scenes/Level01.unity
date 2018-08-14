@@ -8198,6 +8198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1064959928}
   - component: {fileID: 1064959926}
+  - component: {fileID: 1064959927}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -8218,6 +8219,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upSellUI: {fileID: 1964989652}
+--- !u!114 &1064959927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1064959925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94129488b89bc094e87b16247633d72e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds: []
 --- !u!4 &1064959928
 Transform:
   m_ObjectHideFlags: 0
