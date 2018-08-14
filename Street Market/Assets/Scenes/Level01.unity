@@ -992,15 +992,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gold_Text: {fileID: 484561424}
-  Wave: {fileID: 2117421218}
+  WaveText: {fileID: 2117421218}
   startMoney: 9999
-  People: 0a000000140000001e00000028000000
   CurrentBildschirm: {fileID: 973739064}
   OutroBildschirm: {fileID: 1058089655}
   SpawnObject: {fileID: 1905360834857348, guid: 23883400cd2558c45924d24050a22c48,
     type: 2}
   SpawnTimer: 1
   SpawnPoint: {x: -160, y: -3.5, z: 0}
+  waves:
+  - people:
+    - {fileID: 1905360834857348, guid: 23883400cd2558c45924d24050a22c48, type: 2}
+    - {fileID: 1383010280092162, guid: 372e9071ade297e4196b2d7f70365fe0, type: 2}
+    count: 2
+    rate: 0.5
+  - people:
+    - {fileID: 1905360834857348, guid: 23883400cd2558c45924d24050a22c48, type: 2}
+    - {fileID: 1383010280092162, guid: 372e9071ade297e4196b2d7f70365fe0, type: 2}
+    count: 3
+    rate: 4
+  - people:
+    - {fileID: 1905360834857348, guid: 23883400cd2558c45924d24050a22c48, type: 2}
+    - {fileID: 1383010280092162, guid: 372e9071ade297e4196b2d7f70365fe0, type: 2}
+    count: 4
+    rate: 2
 --- !u!1001 &134467764
 Prefab:
   m_ObjectHideFlags: 0
@@ -8186,6 +8201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1064959928}
   - component: {fileID: 1064959926}
+  - component: {fileID: 1064959927}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -8206,6 +8222,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upSellUI: {fileID: 1964989652}
+--- !u!114 &1064959927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1064959925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28cd5f53b7b403146861198ede441c27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverUI: {fileID: 0}
+  completeLevelUI: {fileID: 0}
 --- !u!4 &1064959928
 Transform:
   m_ObjectHideFlags: 0
