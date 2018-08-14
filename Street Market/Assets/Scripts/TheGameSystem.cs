@@ -49,7 +49,7 @@ public class TheGameSystem : MonoBehaviour {
         Wave wave = waves[currentWave];
         if (WaveDone)
         {
-            if (currentWave < waves.Length)
+            if (currentWave <= waves.Length-1)
             {
                 WaveText.text = "Day " + currentWave.ToString() + "!";
                 StartCoroutine(SpawnSystem(SpawnTimer));
