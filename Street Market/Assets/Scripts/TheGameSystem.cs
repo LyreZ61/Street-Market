@@ -15,7 +15,6 @@ public class TheGameSystem : MonoBehaviour {
     public GameObject OutroBildschirm;
 
     private int currentWave;
-    public GameObject SpawnObject;
     public float SpawnTimer = 10f;
 
     public Vector3 SpawnPoint;
@@ -44,9 +43,11 @@ public class TheGameSystem : MonoBehaviour {
 
     private bool WaveDone = true;
 
+    
+
+
     public void NextWave()
     {
-        Wave wave = waves[currentWave];
         if (WaveDone)
         {
             if (currentWave <= waves.Length-1)

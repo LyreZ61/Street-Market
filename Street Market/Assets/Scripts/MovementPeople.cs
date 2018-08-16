@@ -8,6 +8,10 @@ public class MovementPeople : MonoBehaviour {
     public Vector3 diff;    //Differenz um den Position unter dem Haus zu haben.
 
     public bool HausGefuden = false;
+    public GameObject MyImage;
+    public GameObject Sprechblase;
+    public float SprechblaseTimer = 3f;
+
     private Collider2D NewHaus;
     private Collider2D OldHaus;
     private Vector3 posA;
@@ -44,7 +48,7 @@ public class MovementPeople : MonoBehaviour {
                         NewHaus.GetComponent<houseScript>().PeopleRefresh(1); //People +1
                         if (NewHaus.GetComponent<houseScript>().ReinGehen == true) //Wenn Haus nicht voll ist
                         {
-                            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                            MyImage.SetActive(false);
                         }
                         SwitchInput = 2;
                     }
@@ -83,7 +87,7 @@ public class MovementPeople : MonoBehaviour {
         FindObjectOfType<TheGameSystem>().MoneyVerdient(GeldBekommen);
         HausGefuden = false;
         NewHaus.GetComponent<houseScript>().PeopleRefresh(-1); //People -1
-        gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        MyImage.SetActive(true);
         SwitchInput = 3;
     }
 
@@ -101,5 +105,25 @@ public class MovementPeople : MonoBehaviour {
         posB = NewHaus.transform.position - diff;
     }
 
+        private float Wave(float a, float b, float seconds, float amount)
+    {
+        float a4 = (b - a) * 0.5f;
+        return a + a4 + Mathf.Sin((((Time.deltaTime * 0.001f) + seconds * amount) / seconds) * (Mathf.PI * 2)) * a4;
+    }
+
+    //Show Sprechblase
+
+
+    private void OnMouseDown()
+    {
+        Sprechblase.SetActive(true);
+        StartCoroutine(ShowIconTimer(SprechblaseTimer));
+    }
+
+    private IEnumerator ShowIconTimer(float waitTime) //Warten
+    {
+        yield return new WaitForSeconds(waitTime);
+        Sprechblase.SetActive(false);
+    }
 
 }
