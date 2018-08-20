@@ -14,7 +14,7 @@ public class shop : MonoBehaviour
 
     public void SelectStandardHouse(int HausNumber)
     {
-        Debug.Log("Standard Turret Selected");
+        //Haus Selected
         buildManager.SelectHouseToBuild(standardHouse[HausNumber]);             // ohne buy system buildManager.SetTurretToBuild(buildManager.standardTurretPrefab); 
 
     }

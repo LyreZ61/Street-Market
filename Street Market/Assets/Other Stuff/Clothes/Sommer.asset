@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 323413f44d783ea47a85a50674bf3d88, type: 3}
+  m_Name: Sommer
+  m_EditorClassIdentifier: 
+  MyClothes:
+  - name: Mann
+    Haare:
+    - {fileID: 21300000, guid: b570a9bf48f6b024c8248735a97f83fb, type: 3}
+    - {fileID: 21300000, guid: 4cb58947a64db094d97a4331358a1f53, type: 3}
+    - {fileID: 21300000, guid: aef35a7579a7d8846bf9f0466fc0720a, type: 3}
+    Kopf:
+    - {fileID: 21300000, guid: 25516cc57b120fd47be462d324ae5afe, type: 3}
+    - {fileID: 21300000, guid: 8d2f71c2b496ce547a6859cbbcb3f1b3, type: 3}
+    - {fileID: 21300000, guid: 9473b0a6b306b134a82b6d99513aa74d, type: 3}
+    "K\xF6rper":
+    - {fileID: 21300000, guid: 3a72d2d515caf5c45a0d6e228169b8df, type: 3}
+    - {fileID: 21300000, guid: 66816088ed386604da8b9782790d8be5, type: 3}
+    - {fileID: 21300000, guid: 84ff4c2d245246e4987cf1be962af81d, type: 3}
+    Arm:
+    - {fileID: 21300000, guid: 404016ad98ee8d340979981e00c763c0, type: 3}
+    - {fileID: 21300000, guid: a7cabc67867eed142aae31005fbe62a3, type: 3}
+    - {fileID: 21300000, guid: 17da35290e317e14cbdb815b846243e4, type: 3}
+    Hose:
+    - {fileID: 21300000, guid: 71f43a712836290408f02bb8fe3812dc, type: 3}
+    Schuhe:
+    - {fileID: 21300000, guid: 92775724f820668438867c199887a9c8, type: 3}
+    - {fileID: 21300000, guid: c825000b9380ce44b9e7b8bb23449c5f, type: 3}
+    - {fileID: 21300000, guid: 6f3b1359db11be84e9a38e2156da655d, type: 3}
+  - name: Frau
+    Haare:
+    - {fileID: 21300000, guid: ee9ea6d21aed4994987507cc8862eaad, type: 3}
+    - {fileID: 21300000, guid: fb1098c596387484082647ee7187b001, type: 3}
+    - {fileID: 21300000, guid: 1acb422e019e08848873d3ece44ab280, type: 3}
+    Kopf:
+    - {fileID: 21300000, guid: 33391b34487e99b43a37b496fddcc197, type: 3}
+    - {fileID: 21300000, guid: d29598af4c23ae14cacf8f188e7ff2b4, type: 3}
+    - {fileID: 21300000, guid: c49dce9088f3ae94a99bd7cc883beb64, type: 3}
+    "K\xF6rper":
+    - {fileID: 21300000, guid: 112f6ee955c33754eae90f19e12e41f3, type: 3}
+    - {fileID: 21300000, guid: 1925653853024294cb1bc01d30e7cde4, type: 3}
+    - {fileID: 21300000, guid: 5b231fe9c211aa1419fdb2f3d331c788, type: 3}
+    Arm:
+    - {fileID: 21300000, guid: 839fffc0d2f5732489eed76ca44b1684, type: 3}
+    Hose:
+    - {fileID: 21300000, guid: 33c2bb762d6a1664d90a10e58f6adc2e, type: 3}
+    - {fileID: 21300000, guid: 4b098e96479dbc64ab81f17b693e410e, type: 3}
+    Schuhe:
+    - {fileID: 21300000, guid: 398882c9cfd5b7047a59b6d9229b3a47, type: 3}
+    - {fileID: 21300000, guid: 761ea20a7f1382c478ba0c19ae094daf, type: 3}
+    - {fileID: 21300000, guid: 7c5775f6aa6acb744b5e00f0a7f346a9, type: 3}

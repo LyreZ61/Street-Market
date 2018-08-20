@@ -43,7 +43,6 @@ public class HouseSpawn : MonoBehaviour {
         {
 
             buildManager.SelectHouse(this);
-            Debug.Log("Cant´t build there! - TODO : Display on screen");
             return;
         }
 
@@ -60,7 +59,6 @@ public class HouseSpawn : MonoBehaviour {
     {
         if (TheGameSystem.Money < blueprint.cost)
         {
-            Debug.Log("Not enough to build that!");
             return;
         }
         game.MoneyVerloren(blueprint.cost);
@@ -73,15 +71,12 @@ public class HouseSpawn : MonoBehaviour {
         /*GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);     // effect für buildeffect
         Destroy(effect, 5f);*/
 
-        Debug.Log("Turret build! Money left:" + TheGameSystem.Money);
-
     }
 
     public void UpgradeHouse()
     {
         if (TheGameSystem.Money < houseBlueprint.upgradeCost)
         {
-            Debug.Log("Not enough to upgrade that!");
             return;
         }
         game.MoneyVerloren(houseBlueprint.upgradeCost);
@@ -98,7 +93,6 @@ public class HouseSpawn : MonoBehaviour {
 
         isUpgraded = true;
 
-        Debug.Log("Turret upgraded!");
     }
 
     public void SellHouse()

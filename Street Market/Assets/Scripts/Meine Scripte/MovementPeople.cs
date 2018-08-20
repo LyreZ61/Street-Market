@@ -13,11 +13,16 @@ public class MovementPeople : MonoBehaviour {
     public float SprechblaseTimer = 3f;
 
     private Collider2D NewHaus;
-    private Collider2D OldHaus;
+    //private Collider2D OldHaus;
     private Vector3 posA;
     private Vector3 posB;
     private Vector3 PosBef;
     private int SwitchInput;
+
+    private void Start()
+    {
+        FindObjectOfType<TheGameSystem>().BedurfnisRandomize();
+    }
 
     // Update is called once per frame
     void Update()
@@ -32,6 +37,17 @@ public class MovementPeople : MonoBehaviour {
                 }
                 else
                 {
+                    if (FindObjectOfType<CameraMovement>().xClampValue.y + 58 < transform.position.x)
+                    {
+                        TheGameSystem.PeopleInScreen--;
+                        if (TheGameSystem.PeopleInScreen == 0)
+                        {
+                            FindObjectOfType<TheGameSystem>().StartNewSound("Music1", 50f);
+                        }
+                            
+                        Destroy(gameObject);
+                        return;
+                    }
                     transform.position = new Vector3(transform.position.x + speed * Time.deltaTime, transform.position.y, transform.position.z);
                 }
                 break;
@@ -42,11 +58,11 @@ public class MovementPeople : MonoBehaviour {
                 if (posB.x == posA.x && posA.y == posB.y)
                 {
                     PosBef = new Vector3(posB.x + Mathf.Abs((posB.x - PosBef.x)), PosBef.y, PosBef.z);
-                    if (NewHaus.GetComponent<houseScript>().MyPeopleAnzahl < NewHaus.GetComponent<houseScript>().MaxPeople)
+                    if (NewHaus.GetComponent<houseScript>().MyPeopleAnzahl < NewHaus.GetComponent<houseScript>().MaxPeople) //Wenn Haus nicht voll ist
                     {
                         StartCoroutine(WaitForHausTime(NewHaus.GetComponent<houseScript>().HausWait)); //Warten
                         NewHaus.GetComponent<houseScript>().PeopleRefresh(1); //People +1
-                        if (NewHaus.GetComponent<houseScript>().ReinGehen == true) //Wenn Haus nicht voll ist
+                        if (NewHaus.GetComponent<houseScript>().ReinGehen == true) //Ób man Reingehen soll.
                         {
                             MyImage.SetActive(false);
                         }
@@ -54,9 +70,10 @@ public class MovementPeople : MonoBehaviour {
                     }
                     else
                     {
+                        FindObjectOfType<AudioManager>().PlayAndStop("Sad1 - Female", Random.Range(-0.1f, 0.1f)); //Play Sound: Coin
                         HausGefuden = false;
                         NewHaus = null;
-                        OldHaus = NewHaus;
+                        //OldHaus = NewHaus;
                         SwitchInput = 3;
                     }
                     return;
@@ -88,6 +105,9 @@ public class MovementPeople : MonoBehaviour {
         HausGefuden = false;
         NewHaus.GetComponent<houseScript>().PeopleRefresh(-1); //People -1
         MyImage.SetActive(true);
+
+        FindObjectOfType<AudioManager>().PlayAndStop("Coin1",Random.Range(-0.1f,0.1f)); //Play Sound: Coin
+
         SwitchInput = 3;
     }
 
